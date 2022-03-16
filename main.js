@@ -1,5 +1,17 @@
 'use strict'
 
+let a = (
+
+)
+
+const pesquisarRacas =  async () => {
+
+    const url = "https://dog.ceo/api/breeds/list/all" 
+    const response = await fetch (url)
+    const data = await response.json()
+    console.log (data.message)
+}
+
 const pesquisarCachorro = async (raca) => {
     const url = `https://dog.ceo/api/breed/${raca}/images`
 
@@ -29,7 +41,22 @@ const carregarImagens = async () => {
     //teste: console.log(imagens)
 }
 
+carregarRacas = () => {
+
+    const lista = document.getElementById('lista-racas')
+    const racas = await pesquisarRacas()
+    lista.innerHTML = 
+       <option>
+           ${racas.join("</option><option>")}
+       </option>
+}   
+
+const abrir = () => {
+    
+}
 
 document
     .getElementById('pesquisar')
     .addEventListener('click', carregarImagens)
+
+carregarRacas()
